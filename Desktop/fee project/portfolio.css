@@ -1,0 +1,276 @@
+html {
+    line-height: 1.15;
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    background-color: black;
+    font-size: 16px;
+    font-family: 'Dosis', Arial, Helvetica, sans-serif;
+    margin: 0px;
+    height: 1200px;
+}
+
+.container {
+    width: 1200px;
+   margin: 0px auto;
+   padding: 0 15px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    margin-top: 10px;
+    font-size: 28px;
+    font-family: 'Dosis', 'sans-serif';
+    display: inline-block;
+    color: #fff;
+}
+
+nav {
+    text-align: center;
+    float: right;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 30px;
+}
+
+nav .titlelogo {
+    display: inline-block;
+}
+
+nav li :hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    font-style: normal;
+    font-weight: 400;
+    padding-left: 0px;
+}
+
+.titlelogo {
+    float: left;
+ 
+}
+
+.titlebox {
+    float: left;
+   
+}
+
+header {
+    border-bottom: solid 2px white;
+    padding: 10px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+header img {
+    vertical-align: middle;
+}
+h1{
+    position: absolute;
+    top: 100px;
+    font-size: 70px;
+    font-family: fantasy;
+    display: inline-block;
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+h1:hover{
+    scale: 1.1;
+}
+.iron-man{
+    float: right;
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    height: 700px;
+    display: inline-block;
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.container{
+    z-index: -1;
+}
+button{
+    background-color: #fff;
+    position: absolute;
+    top: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: cursive;
+    border: solid white 2px;
+    background-color: black;
+    color: white;
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+    border: solid 2px black;}
+
+.btn:hover{
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+    border: solid 2px black;
+}
+.btn{
+    background-color: #fff;
+    position: absolute;
+    top: 300px;
+    left: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: cursive;
+    border: solid white 2px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.name{
+    font-family: cursive;
+    color: #fff;
+    position: absolute;
+    top: 250px;
+    font-size: xx-large;
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.name:hover{
+    transform: scale(1.1);
+}
+.iron-man::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: gray; 
+    opacity: 0.5; 
+    z-index: -1; 
+}
+
+
+body::after {
+    content: "";
+    display: block;
+    height: 200px; 
+    width: 100%;
+    background-color: #fff; 
+    position: absolute;
+    bottom: 0;
+    z-index: -1; 
+    display: flex;
+}
+.box1{
+    position: absolute;
+    bottom: 0;
+    color: black;
+    width: 30%;
+    border: solid 15px black;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 200px;
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.box1:hover{
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+    border: solid 2px white;
+}
+.bottom{
+    display: flex;
+}
+.skills{
+    background-color: black;
+    height: 300px;
+    width: 1470px;
+    margin-top: 750px;
+    margin-left: 0px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+  display: flex;
+  justify-content: space-around;
+    padding-top: 70px;
+    border-radius: 15px;
+    border: solid #fff 2px;
+}
+.skill{
+height: 250px;
+width: 250px;
+background-color: black;
+border: solid 2px white;
+border-radius: 15px;
+
+}
+ul{
+    padding-left: 30px;
+}
+
+
+ul li {
+    list-style-type: disc; 
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;
+   
+}
+.skill :hover{
+   transform: scale(1.1)
+   
+}
+footer{
+    background-color: aliceblue;
+    height: 50px;
+    margin-top: 1200px;
+    display: flex;
+    justify-content: space-around;
+}
+.foot {
+    color: black;
+    margin: 10px;
+}
+footer li {
+    color: black;
+    list-style: none;
+}
+footer  a {
+    text-decoration: none;
+    color: black;
+}
+footer a:hover{
+    text-decoration: underline;
+}

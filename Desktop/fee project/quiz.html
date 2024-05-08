@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Quiz Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            /* background-image: linear-gradient(140deg, #CDF5FD 0%, #00A9FF 50%, #89CFF3 75%); */
+             background-image: url("https://images.unsplash.com/photo-1700819083576-edbdde9e16c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #quiz-container {
+            background-image: linear-gradient(140deg, #BBAB8C 0%, #FAEED1 50%, #FDF7E4 75%);
+            box-shadow: 10px 10px 5px 12px lightblue;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            padding: 20px; 
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        #options {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px; 
+        }
+
+        input {
+            margin: 8px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        #submit-btn {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 1em; 
+        }
+
+        #submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .toast {
+            background-color: #2ecc71;
+            color: #fff;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="quiz">
+            <h1>Classic Quiz</h1>
+            <div id="question-container">
+                <h2 id="question">Question 1: How can we change the text color of an element?</h2>
+                <div id="options"></div>
+            </div>
+            <button id="submit-btn">Next</button>
+        </div>
+    </div>
+    <div id="toast-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const questions = [
+        {
+            question: 'How can we change the text color of an element?',
+            options: ['Background-color', 'color', 'Both "A" and "B"'],
+            correctAnswer: 'color'
+        },
+        {
+            question: 'Which HTML tag is used to declare internal CSS?',
+            options: ['<style>', '<link>', '<script>'],
+            correctAnswer: '<style>'
+        },
+        {
+            question: 'Which of the following CSS property is used for controlling the layout?',
+            options: ['Display', 'Color', 'Text'],
+            correctAnswer: 'Display'
+        }
+    ];
+
+    const quizContainer = document.getElementById('quiz');
+    const questionContainer = document.getElementById('question-container');
+    const optionsContainer = document.getElementById('options');
+    const submitButton = document.getElementById('submit-btn');
+    const toastContainer = document.getElementById('toast-container');
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const currentQuiz = questions[currentQuestion];
+        document.getElementById('question').innerText = `Question ${currentQuestion + 1}: ${currentQuiz.question}`;
+
+        optionsContainer.innerHTML = '';
+
+        currentQuiz.options.forEach((option, index) => {
+            const radioBtn = document.createElement('input');
+            radioBtn.type = 'radio';
+            radioBtn.name = 'answer';
+            radioBtn.value = option;
+            radioBtn.id = `option${index + 1}`;
+
+            const label = document.createElement('label');
+            label.htmlFor = `option${index + 1}`;
+            label.innerText = option;
+
+            optionsContainer.appendChild(radioBtn);
+            optionsContainer.appendChild(label);
+        });
+    }
+
+    function checkAnswer() {
+        const userAnswer = document.querySelector('input[name="answer"]:checked');
+
+        if (!userAnswer) {
+            showToast('Please select an answer.');
+            return;
+        }
+
+        const selectedAnswer = userAnswer.value;
+
+        if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+            score++;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const resultText = `You scored ${score} out of ${questions.length}.`;
+        showToast(resultText);
+    }
+
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerText = message;
+
+        toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 100);
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 3500);
+    }
+
+    submitButton.addEventListener('click', checkAnswer);
+
+    loadQuestion();
+});
+
+    </script>
+</body>
+</html>

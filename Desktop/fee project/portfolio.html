@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Dancing+Script&family=Oleo+Script:wght@700&family=Open+Sans+Condensed:wght@300;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="logo.png">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="conat">
+    <input type="menu">
+    <header>
+        <div class="container">
+            <div class="titlebox">
+                <div class="titlelogo">
+                    <a href="index.html"><img alt="Logo" src="logo.png"></a>
+                </div>
+                <div class="title">
+                    PORTFOLIO
+                </div>
+            </div>
+            <nav>
+                <ul class="navbar">
+                    <div class="navside">
+                        <li>
+                            <a href="/main.html">
+                                home
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/main.html">
+                                About
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/main.html">
+                                Certificates
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/main.html">
+                                Contact
+
+                            </a>
+                        </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>
+                MY PORTFOLIO
+            </h1>
+            <div class="name">
+                Tony Stark
+            </div>
+        
+        <div class="hero">
+            <img src="/tony_stark-removebg-preview.png" alt="" class="iron-man">
+        </div>
+        <span>
+            <button> Hire Me</button>
+        </span>
+        <span>
+            <button class="btn"> know more</button>
+        </span>
+        <div class="bottom">
+        <div class="box1"> Iron Man, American comic book superhero, a mainstay of Marvel Comics, 
+            who first appeared in 1963 in Tales of Suspense no. 39.
+            <br>His creation is officially credited to four people: writer and editor Stan Lee,
+                 who plotted the first story; his brother Larry Lieber, who scripted it;
+                  artist Don Heck, who drew it. &nbsp;&nbsp;&nbsp;&nbsp;
+                  <br> Iron Man has appeared as the star of his own comic book series,
+                     as a regular guest in other popular comics (most notably in the The Avengers),
+                in animated films and television series, and in live-action motion pictures.
+                </div>
+       <div class="skills">
+        <div class="skill" id="skill1">
+           <center> <h3>-------------Skills-------------</h3>
+        </center>
+          <div>
+            <ul>
+                <li>
+                    Html
+                </li>
+                <li>
+                    Css
+                </li>
+                <li>
+                    JavaScript
+                </li>
+                <li>
+                    Python
+                </li>
+            </ul>
+          </div>
+        </div>
+        <div class="skill" id="skill2">
+                    <center> <h3>-----------Projects------------</h3>
+                 </center>
+                     <ul>
+                         <li>
+                             JavaScript Quiz
+                         </li>
+                         <li>
+                             Portfolio
+                         </li>
+                         <li>
+                             CoffeeShop Website
+                         </li>
+                         <li>
+                            Netflix
+                         </li>
+                     </ul>
+             
+        </div>
+        <div class="skill" id="skill3">
+            <center> <h3>-----------Certificates----------</h3>
+            </center>
+                <ul>
+                    <li>
+                        Code Relay
+                    </li>
+                    <li>
+                        Coding Ninja
+                    </li>
+                    <li>
+                        Coursera
+                    </li>
+                    <li>
+                       HackerRank
+                    </li>
+                </ul>
+        </div>
+       </div>
+    </div>
+    </div>
+    </main>
+    
+<footer>
+    <div class="foot" id="foot1"><li><a href="#">demo8392@gmail.com</a></li></div>
+    <div class="foot" id="foot2"><li><a href="#">+91123456789</a></li></div>
+    <div class="foot" id="foot3"><i class="fab fa-instagram" id="id"><a href="#"> @demo8392__</a></i></div>
+</footer>
+<ul class="notifications"></ul>
+    <div class="buttons">
+      <button class="btn" id="success">Earth</button>
+      <button class="btn" id="error">Mars</button>
+      <button class="btn" id="warning">Venus</button>
+      <button class="btn" id="info">Saturn</button>
+    </div>
+</div>
+</body>
+<script>
+    console.log("hiiiiii")
+const notifications = document.querySelector(".notifications"),
+buttons = document.querySelectorAll(".buttons .btn");
+
+const toastDetails = {
+    timer: 5000,
+    success: {
+        icon: 'fa-circle-check',
+        text: 'Success: This is a success toast.',
+    },
+    error: {
+        icon: 'fa-circle-xmark',
+        text: 'Error: This is an error toast.',
+    },
+    warning: {
+        icon: 'fa-triangle-exclamation',
+        text: 'Warning: This is a warning toast.',
+    },
+    info: {
+        icon: 'fa-circle-info',
+        text: 'Info: This is an information toast.',
+    }
+}
+
+const removeToast = (toast) => {
+    toast.classList.add("hide");
+    if(toast.timeoutId) clearTimeout(toast.timeoutId);
+    setTimeout(() => toast.remove(), 500); 
+}
+
+const createToast = (id) => {
+  
+    const { icon, text } = toastDetails[id];
+    const toast = document.createElement("li"); 
+    toast.className = `toast ${id}`; 
+   
+    toast.innerHTML = `<div class="column">
+                         <i class="fa-solid ${icon}"></i>
+                         <span>${text}</span>
+                      </div>
+                      <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>`;
+    notifications.appendChild(toast); 
+
+    toast.timeoutId = setTimeout(() => removeToast(toast), toastDetails.timer);
+}
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => createToast(btn.id));
+});
+</script>
+
+</html>

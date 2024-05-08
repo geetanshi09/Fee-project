@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Notification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      animation: slideInUp 0.5s ease-in-out;
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="showToast()">Show Toast</button>
+
+<div id="toast-container">
+  <span>This is a simple toast notification</span>
+</div>
+
+<script>
+  function showToast() {
+    var toastContainer = document.getElementById('toast-container');
+    toastContainer.style.display = 'block';
+
+    // You can customize the message and duration here
+    setTimeout(function() {
+      toastContainer.style.display = 'none';
+    }, 3000); // 3000 milliseconds (3 seconds)
+  }
+</script>
+
+</body>
+</html>
